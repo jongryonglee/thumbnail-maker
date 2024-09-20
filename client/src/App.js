@@ -11,17 +11,20 @@ function App() {
 
   const handleGenerateThumbnail = async () => {
     try {
-      const response = await fetch("/api/generate-thumbnail", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          videoDescription,
-          designDescription,
-          colorScheme,
-        }),
-      });
+      const response = await fetch(
+        "http://127.0.0.1:5000/api/generate-thumbnail",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            videoDescription,
+            designDescription,
+            colorScheme,
+          }),
+        }
+      );
 
       const data = await response.json();
 
